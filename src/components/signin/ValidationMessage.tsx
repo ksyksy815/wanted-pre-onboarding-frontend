@@ -3,7 +3,7 @@ type ValidationMessageProps = {
 };
 
 const ValidationMessage = ({ message }: ValidationMessageProps) => {
-  return <div>{message}</div>;
+  return <div className="invalid_message">{message}</div>;
 };
 
 export default ValidationMessage;

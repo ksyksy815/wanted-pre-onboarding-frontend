@@ -11,7 +11,10 @@ type TodoContextType = {
 };
 
 const TodoContext = createContext<TodoContextType>({
-  todos: [{ id: 555, todo: "메롱", isCompleted: false, userId: 233 }],
+  todos: [
+    { id: 555, todo: "메롱", isCompleted: false, userId: 233 },
+    { id: 5355, todo: "메asdfasd롱", isCompleted: false, userId: 2323 },
+  ],
   getList: async () => {},
   createTodo: async () => {},
   editTodo: async () => {},

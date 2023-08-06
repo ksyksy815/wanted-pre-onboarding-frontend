@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
 import { TodoContainer } from "../../components/todo";
 import { TodoContext } from "../../context/TodoContext";
+import Page from "../../components/Page";
 
 const TodoPage = () => {
   const { getList } = useContext(TodoContext);
@@ -10,9 +11,9 @@ const TodoPage = () => {
   }, [getList]);
 
   return (
-    <div>
+    <Page>
       <TodoContainer />
-    </div>
+    </Page>
   );
 };
 

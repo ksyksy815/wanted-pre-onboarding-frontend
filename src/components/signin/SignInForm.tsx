@@ -7,6 +7,7 @@ import {
 import ValidationMessage from "./ValidationMessage";
 import { signup } from "../../api/api";
 import { UserLogIn } from "../../types/user";
+import { StyledForm, StyledFormButton } from "./SigninForm.style";
 
 type SignInFormProps = {
   pageMode: "signIn" | "signUp";
@@ -56,29 +57,29 @@ const SignInForm = ({ pageMode }: SignInFormProps) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <div>
+    <StyledForm onSubmit={handleSubmit}>
+      <div className="formRow">
+        <div className="label_input">
           <label htmlFor="email">Email</label>
           <input
             type="email"
             data-testid="email-input"
-            placeholder={`Email`}
+            placeholder={`이메일을 입력하세요`}
             value={email}
             onChange={(e) => onEmailInputChange(e)}
           />
         </div>
         {!isValidEmail && (
-          <ValidationMessage message="올바른 이메일 형식을 작성해주세요" />
+          <ValidationMessage message="올바른 이메일 형식을 입력해주세요" />
         )}
       </div>
-      <div>
-        <div>
+      <div className="formRow">
+        <div className="label_input">
           <label htmlFor="password">Password</label>
           <input
             type="password"
             data-testid="password-input"
-            placeholder={`Password`}
+            placeholder={`비밀번호를 입력하세요`}
             value={password}
             onChange={(e) => onPasswordInputChange(e)}
           />
@@ -87,15 +88,15 @@ const SignInForm = ({ pageMode }: SignInFormProps) => {
           <ValidationMessage message="비밀번호는 8자 이상 작성해주세요" />
         )}
       </div>
-      <div>
-        <button
+      <div className="formRow">
+        <StyledFormButton
           type="submit"
           data-testid={buttonTestId}
           disabled={!isValidEmail || !isValidPassword}>
           {buttonText}
-        </button>
+        </StyledFormButton>
       </div>
-    </form>
+    </StyledForm>
   );
 };
 

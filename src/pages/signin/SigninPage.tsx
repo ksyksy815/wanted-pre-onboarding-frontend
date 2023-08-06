@@ -1,11 +1,12 @@
 import React from "react";
 import SignInForm from "../../components/signin/SignInForm";
+import Page from "../../components/Page";
 
 const SigninPage = () => {
   return (
-    <div>
+    <Page>
       <SignInForm pageMode="signIn" />
-    </div>
+    </Page>
   );
 };
 

@@ -14,23 +14,21 @@ const Item = ({ id, todo, isCompleted, userId }: TodoItemProps) => {
   };
 
   return (
-    <div>
-      <li>
-        <label>
-          <input
-            type="checkbox"
-            checked={isCompleted}
-            onChange={handleChecking}
-          />
-          {mode === "view" ? (
-            <span>{todo}</span>
-          ) : (
-            <input type="text">{todo}</input>
-          )}
-        </label>
-        <ItemButtonSet mode={mode} setMode={setMode} />
-      </li>
-    </div>
+    <li className="todo_item">
+      <label>
+        <input
+          type="checkbox"
+          checked={isCompleted}
+          onChange={handleChecking}
+        />
+        {mode === "view" ? (
+          <span>{todo}</span>
+        ) : (
+          <input type="text" value={todo} />
+        )}
+      </label>
+      <ItemButtonSet mode={mode} setMode={setMode} />
+    </li>
   );
 };
 

@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { TodoContext } from "../../context/TodoContext";
+import { StyledTodoForm } from "./Todo.style";
 
 const Form = () => {
   const { createTodo } = useContext(TodoContext);
@@ -22,18 +23,19 @@ const Form = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <StyledTodoForm onSubmit={handleSubmit}>
       <input
         type="text"
         name="newTodo"
         value={newTodo}
+        placeholder="새로운 투두를 작성하세요"
         data-testid="new-todo-input"
         onChange={handleInputChange}
       />
       <button type="submit" data-testid="new-todo-add-button">
         추가
       </button>
-    </form>
+    </StyledTodoForm>
   );
 };
 

@@ -1,12 +1,14 @@
 import React from "react";
 import { TodoForm, TodoList } from ".";
+import { StyledContainer } from "./Todo.style";
 
 const Container = () => {
   return (
-    <div>
+    <StyledContainer>
+      <h1>Todo List</h1>
       <TodoForm />
       <TodoList />
-    </div>
+    </StyledContainer>
   );
 };
 
