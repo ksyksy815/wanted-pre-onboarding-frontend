@@ -1,6 +1,6 @@
-import Signin from "./signin/Signin";
-import Signup from "./signup/Signup";
-import Todo from "./todo/Todo";
+import SigninPage from "./signin/SigninPage";
+import SignupPage from "./signup/SignupPage";
+import TodoPage from "./todo/TodoPage";
 import NotFound from "./NotFound";
 
-export { Signin, Signup, Todo, NotFound };
+export { SigninPage, SignupPage, TodoPage, NotFound };

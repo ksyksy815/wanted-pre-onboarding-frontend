@@ -2,16 +2,21 @@ import { AxiosResponse, AxiosError } from "axios";
 
 export const apiRequest = async <T>(
   request: Promise<AxiosResponse<T>>
-): Promise<T> => {
+): Promise<T | boolean> => {
   try {
     const response = await request;
+
     return response.data;
   } catch (error: any) {
-    handleApiError(error);
-    throw error;
+    const errorMessage = handleApiError(error);
+    alert(errorMessage);
+
+    return false;
   }
 };
 
-const handleApiError = (error: AxiosError) => {
-  console.error("API Error: ", error);
+const handleApiError = (error: any) => {
+  return (
+    error.response?.data?.message || "이메일 또는 비밀번호를 다시 확인해주세요"
+  );
 };
