@@ -6,7 +6,7 @@ export const apiRequest = async <T>(
   try {
     const response = await request;
 
-    return response.data;
+    return response.data ? response.data : true;
   } catch (error: any) {
     const errorMessage = handleApiError(error);
     alert(errorMessage);

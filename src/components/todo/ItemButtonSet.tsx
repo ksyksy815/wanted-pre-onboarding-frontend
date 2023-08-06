@@ -30,14 +30,16 @@ const ItemButtonSet = ({ mode, setMode }: ItemButtonSetProps) => {
   };
 
   return (
-    <div>
-      <button type="button" data-testid={firstBtnId} onClick={handleEdit}>
-        {firstBtnText}
-      </button>
-      <button type="button" data-testid={secondBtnId} onClick={handleDelete}>
-        {secondBtnText}
-      </button>
-    </div>
+    <>
+      <div>
+        <button type="button" data-testid={firstBtnId} onClick={handleEdit}>
+          {firstBtnText}
+        </button>
+        <button type="button" data-testid={secondBtnId} onClick={handleDelete}>
+          {secondBtnText}
+        </button>
+      </div>
+    </>
   );
 };
 

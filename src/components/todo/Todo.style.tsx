@@ -55,4 +55,11 @@ export const StyledTodoList = styled.ul`
       }
     }
   }
+
+  .emptyList {
+    display: grid;
+    place-content: center;
+    font-size: 0.8rem;
+    padding: 2rem;
+  }
 `;

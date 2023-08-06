@@ -1,9 +1,9 @@
 import React, { useContext, useState } from "react";
-import { TodoContext } from "../../context/TodoContext";
+import { TodoContext, useTodoContext } from "../../context/TodoContext";
 import { StyledTodoForm } from "./Todo.style";
 
 const Form = () => {
-  const { createTodo } = useContext(TodoContext);
+  const { createTodo, getList } = useTodoContext();
   const [newTodo, setNewTodo] = useState<string>("");
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -11,15 +11,25 @@ const Form = () => {
       setNewTodo("");
       return;
     }
-    if (!e.target.value || e.target.value === "") return;
 
     setNewTodo(e.target.value);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!newTodo || newTodo === "") return;
+
     console.log(newTodo);
-    // createTodo(newTodo)
+
+    const result = await createTodo(newTodo);
+
+    if (result) {
+      await getList();
+      setNewTodo("");
+    } else {
+      alert("투두 작성이 실패했어요");
+    }
   };
 
   return (

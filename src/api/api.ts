@@ -35,7 +35,7 @@ export const signin = async (loginData: UserLogIn) => {
 };
 
 export const createTodo = async (todo: string) => {
-  return await apiRequest(api.post(TODO_CREATE_URL, { todo }));
+  return await apiRequest(api.post(TODO_CREATE_URL, { todo }, authHeaders));
 };
 
 export const getTodoList = async () => {

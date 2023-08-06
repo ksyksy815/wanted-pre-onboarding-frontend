@@ -9,11 +9,11 @@ const List = () => {
 
   useEffect(() => {
     getList();
-  }, [getList]);
+  }, []);
 
   return (
     <StyledTodoList>
-      {todos ? (
+      {todos.length > 0 ? (
         todos.map((todoProps: Todo) => {
           return (
             <TodoItem
@@ -23,7 +23,7 @@ const List = () => {
           );
         })
       ) : (
-        <span>{`입력된 투두가 없어요`}</span>
+        <span className="emptyList">{`입력된 투두가 없어요`}</span>
       )}
     </StyledTodoList>
   );

@@ -24,7 +24,7 @@ const Item = ({ id, todo, isCompleted, userId }: TodoItemProps) => {
         {mode === "view" ? (
           <span>{todo}</span>
         ) : (
-          <input type="text" value={todo} />
+          <input type="text" defaultValue={todo} />
         )}
       </label>
       <ItemButtonSet mode={mode} setMode={setMode} />

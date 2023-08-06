@@ -11,9 +11,10 @@ import { StyledForm, StyledFormButton } from "./SigninForm.style";
 
 type SignInFormProps = {
   pageMode: "signIn" | "signUp";
+  onSubmit: (email: string, password: string) => Promise<void>;
 };
 
-const SignInForm = ({ pageMode }: SignInFormProps) => {
+const SignInForm = ({ pageMode, onSubmit }: SignInFormProps) => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const navigate = useNavigate();
@@ -24,6 +25,7 @@ const SignInForm = ({ pageMode }: SignInFormProps) => {
 
   const [isValidEmail, setIsValidEmail] = useState(true);
   const [isValidPassword, setIsValidPassword] = useState(true);
+  const disableBtn = !isValidEmail || !isValidPassword || !email || !password;
 
   const validateEmail = (value: string) => {
     setIsValidEmail(checkEmailValidity(value));
@@ -46,14 +48,7 @@ const SignInForm = ({ pageMode }: SignInFormProps) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (pageMode === "signUp") {
-      const userData: UserLogIn = { email, password };
-      const result = await signup(userData);
-
-      if (result) navigate(`/todo`);
-      else console.log(result);
-    } else {
-    }
+    await onSubmit(email, password);
   };
 
   return (
@@ -92,7 +87,7 @@ const SignInForm = ({ pageMode }: SignInFormProps) => {
         <StyledFormButton
           type="submit"
           data-testid={buttonTestId}
-          disabled={!isValidEmail || !isValidPassword}>
+          disabled={disableBtn}>
           {buttonText}
         </StyledFormButton>
       </div>

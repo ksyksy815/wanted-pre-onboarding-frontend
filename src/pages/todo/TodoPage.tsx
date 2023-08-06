@@ -1,18 +1,26 @@
 import { useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { TodoContainer } from "../../components/todo";
-import { TodoContext } from "../../context/TodoContext";
+import { TodoProvider, TodoContext } from "../../context/TodoContext";
 import Page from "../../components/Page";
 
 const TodoPage = () => {
   const { getList } = useContext(TodoContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    getList();
-  }, [getList]);
+    if (!localStorage.getItem("access_token")) {
+      navigate("/signin");
+    } else {
+      getList();
+    }
+  }, []);
 
   return (
     <Page>
-      <TodoContainer />
+      <TodoProvider>
+        <TodoContainer />
+      </TodoProvider>
     </Page>
   );
 };
