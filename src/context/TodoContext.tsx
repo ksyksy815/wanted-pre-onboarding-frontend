@@ -1,4 +1,10 @@
-import { useContext, createContext, useState, ReactNode } from "react";
+import {
+  useEffect,
+  useContext,
+  createContext,
+  useState,
+  ReactNode,
+} from "react";
 import { Todo } from "../types/todo";
 import { getTodoList } from "../api/api";
 import {
@@ -9,7 +15,7 @@ import {
 
 type TodoContextType = {
   todos: Todo[];
-  getList: () => Promise<any>;
+  getList: () => Promise<void>;
   createTodo: (todo: string) => Promise<any>;
   editTodo: (id: number, todo: string, isCompleted: boolean) => Promise<any>;
   deleteTodo: (id: number) => Promise<any>;
@@ -34,6 +40,10 @@ const TodoProvider = ({ children }: { children: ReactNode }) => {
     const list = await getTodoList();
     setTodos(list);
   };
+
+  useEffect(() => {
+    if (localStorage.getItem("access_token")) getList();
+  }, []);
 
   const createTodo = async (todo: string) => {
     return await makeNewTodo(todo);

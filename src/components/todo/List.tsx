@@ -5,11 +5,7 @@ import { Todo } from "../../types/todo";
 import { StyledTodoList } from "./Todo.style";
 
 const List = () => {
-  const { todos, getList } = useContext(TodoContext);
-
-  useEffect(() => {
-    getList();
-  }, []);
+  const { todos } = useContext(TodoContext);
 
   return (
     <StyledTodoList>

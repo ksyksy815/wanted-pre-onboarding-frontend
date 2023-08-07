@@ -10,7 +10,7 @@ import {
 } from "./apiUrls";
 import { UserLogIn } from "../types/user";
 import { getAccessToken } from "../utils/helpers";
-import { Todo, TodoEditDto } from "../types/todo";
+import { TodoEditDto } from "../types/todo";
 import { apiRequest } from "../utils/apiHelpers";
 
 const api = axios.create({
@@ -20,10 +20,12 @@ const api = axios.create({
   },
 });
 
-const authHeaders = {
-  headers: {
-    Authorization: `Bearer ${getAccessToken()}`,
-  },
+const getAuthHeaders = () => {
+  return {
+    headers: {
+      Authorization: `Bearer ${getAccessToken()}`,
+    },
+  };
 };
 
 export const signup = async (loginData: UserLogIn) => {
@@ -35,17 +37,23 @@ export const signin = async (loginData: UserLogIn) => {
 };
 
 export const createTodo = async (todo: string) => {
-  return await apiRequest(api.post(TODO_CREATE_URL, { todo }, authHeaders));
+  return await apiRequest(
+    api.post(TODO_CREATE_URL, { todo }, getAuthHeaders())
+  );
 };
 
 export const getTodoList = async () => {
-  return await apiRequest(api.get(TODO_GET_URL, authHeaders));
+  return await apiRequest(api.get(TODO_GET_URL, getAuthHeaders()));
 };
 
 export const deleteTodo = async (todoId: number) => {
-  return await apiRequest(api.delete(TODO_DELETE_URL(todoId), authHeaders));
+  return await apiRequest(
+    api.delete(TODO_DELETE_URL(todoId), getAuthHeaders())
+  );
 };
 
 export const editTodo = async (todoId: number, data: TodoEditDto) => {
-  return await apiRequest(api.put(TODO_EDIT_URL(todoId), data, authHeaders));
+  return await apiRequest(
+    api.put(TODO_EDIT_URL(todoId), data, getAuthHeaders())
+  );
 };

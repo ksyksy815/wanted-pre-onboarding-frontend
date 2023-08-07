@@ -19,6 +19,7 @@ const SignInForm = ({ pageMode, onSubmit }: SignInFormProps) => {
   const [password, setPassword] = useState<string>("");
   const navigate = useNavigate();
 
+  const pageTitle = pageMode === "signIn" ? "Login" : "Sign Up";
   const buttonText = pageMode === "signIn" ? "로그인" : "회원가입";
   const buttonTestId =
     pageMode === "signIn" ? "signin-button" : "signup-button";
@@ -53,6 +54,7 @@ const SignInForm = ({ pageMode, onSubmit }: SignInFormProps) => {
 
   return (
     <StyledForm onSubmit={handleSubmit}>
+      <h1>{pageTitle}</h1>
       <div className="formRow">
         <div className="label_input">
           <label htmlFor="email">Email</label>

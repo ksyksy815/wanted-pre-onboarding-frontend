@@ -1,4 +1,4 @@
-import { AxiosResponse, AxiosError } from "axios";
+import { AxiosResponse } from "axios";
 
 export const apiRequest = async <T>(
   request: Promise<AxiosResponse<T>>
@@ -9,7 +9,8 @@ export const apiRequest = async <T>(
     return response.data ? response.data : true;
   } catch (error: any) {
     const errorMessage = handleApiError(error);
-    alert(errorMessage);
+
+    console.log(`에러메시지: `, errorMessage);
 
     return false;
   }

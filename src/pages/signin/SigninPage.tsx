@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import SignInForm from "../../components/signin/SignInForm";
 import Page from "../../components/Page";
@@ -7,6 +7,8 @@ import { signin } from "../../api/api";
 
 const SigninPage = () => {
   const navigate = useNavigate();
+
+  const goToSignUpPage = () => navigate("/signup");
 
   useEffect(() => {
     if (localStorage.getItem("access_token")) navigate("/todo");
@@ -27,6 +29,9 @@ const SigninPage = () => {
   return (
     <Page>
       <SignInForm pageMode="signIn" onSubmit={loginUser} />
+      <span className="white_text_link" onClick={goToSignUpPage}>
+        아직 회원이 아니신가요?
+      </span>
     </Page>
   );
 };

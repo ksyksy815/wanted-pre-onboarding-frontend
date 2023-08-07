@@ -8,6 +8,8 @@ import { UserLogIn } from "../../types/user";
 const SignupPage = () => {
   const navigate = useNavigate();
 
+  const goToSignInPage = () => navigate("/signin");
+
   useEffect(() => {
     if (localStorage.getItem("access_token")) navigate("/todo");
   }, [navigate]);
@@ -26,6 +28,9 @@ const SignupPage = () => {
   return (
     <Page>
       <SignInForm pageMode="signUp" onSubmit={signUpNewUser} />
+      <span className="white_text_link" onClick={goToSignInPage}>
+        이미 회원이신가요?
+      </span>
     </Page>
   );
 };
