@@ -2,41 +2,58 @@ import { Dispatch, SetStateAction } from "react";
 
 type ItemButtonSetProps = {
   mode: "view" | "edit";
-  setMode: Dispatch<SetStateAction<"view" | "edit">>;
+  firstBtn: ButtonConfig;
+  secondBtn: ButtonConfig;
 };
 
-const ItemButtonSet = ({ mode, setMode }: ItemButtonSetProps) => {
-  const firstBtnText = mode === "view" ? "수정" : "제출";
-  const firstBtnId = mode === "view" ? "modify-input" : "submit-button";
-  const secondBtnText = mode === "view" ? "삭제" : "취소";
-  const secondBtnId = mode === "view" ? "delete-button" : "cancel-button";
+type ButtonConfig = {
+  viewModeText: string;
+  editModeText: string;
+  viewModeId: string;
+  editModeId: string;
+  viewModeCallback: () => void | Promise<void>;
+  editModeCallback: () => void | Promise<void>;
+};
 
-  const handleEdit = () => {
-    if (mode === "view") {
-      console.log("수정 버튼 누름");
-    } else {
-      console.log("제출 버튼 누름");
-    }
+const ItemButtonSet = ({ mode, firstBtn, secondBtn }: ItemButtonSetProps) => {
+  const onClickFstBtn = () => {
+    const {
+      viewModeCallback: changeToEditMode,
+      editModeCallback: submitEditedTodo,
+    } = firstBtn;
 
-    setMode((prev) => (prev === "view" ? "edit" : "view"));
+    if (mode === "view") changeToEditMode();
+    else submitEditedTodo();
   };
 
-  const handleDelete = () => {
-    if (mode === "view") {
-      console.log("delete button");
-    } else {
-      console.log("cancel button");
-    }
+  const onClickSndBtn = () => {
+    const {
+      viewModeCallback: deleteTodo,
+      editModeCallback: cancelEditingTodo,
+    } = secondBtn;
+
+    if (mode === "view") deleteTodo();
+    else cancelEditingTodo();
   };
 
   return (
     <>
       <div>
-        <button type="button" data-testid={firstBtnId} onClick={handleEdit}>
-          {firstBtnText}
+        <button
+          type="button"
+          data-testid={
+            mode === "view" ? firstBtn.viewModeId : firstBtn.editModeId
+          }
+          onClick={onClickFstBtn}>
+          {mode === "view" ? firstBtn.viewModeText : firstBtn.editModeText}
         </button>
-        <button type="button" data-testid={secondBtnId} onClick={handleDelete}>
-          {secondBtnText}
+        <button
+          type="button"
+          data-testid={
+            mode === "view" ? secondBtn.viewModeId : secondBtn.editModeId
+          }
+          onClick={onClickSndBtn}>
+          {mode === "view" ? secondBtn.viewModeText : secondBtn.editModeText}
         </button>
       </div>
     </>

@@ -1,7 +1,11 @@
 import { useContext, createContext, useState, ReactNode } from "react";
 import { Todo } from "../types/todo";
 import { getTodoList } from "../api/api";
-import { createTodo as makeNewTodo, editTodo as updateTodo } from "../api/api";
+import {
+  createTodo as makeNewTodo,
+  editTodo as updateTodo,
+  deleteTodo as deleteTodoWithId,
+} from "../api/api";
 
 type TodoContextType = {
   todos: Todo[];
@@ -39,7 +43,9 @@ const TodoProvider = ({ children }: { children: ReactNode }) => {
     return await updateTodo(id, { todo, isCompleted });
   };
 
-  const deleteTodo = async () => {};
+  const deleteTodo = async (id: number) => {
+    return await deleteTodoWithId(id);
+  };
 
   return (
     <TodoContext.Provider
