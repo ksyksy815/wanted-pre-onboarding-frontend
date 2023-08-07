@@ -1,46 +1,54 @@
-# Getting Started with Create React App
+# [Pre-Onboarding] 프론트엔드 사전과제
+👩🏻‍💻 이름: 김서연
+🖥️ create-react-app 사용
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+## Project Execution
+- git clone ➡ npm install ➡ npm run start
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Dependencies
+- React
+- TypeScript
+- Emotion
+- Axios
+- React-Router
+- Rreact-Icons
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## View
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. /signup
+<img width="517" alt="image" src="https://github.com/ksyksy815/wanted-pre-onboarding-frontend/assets/76037764/28dfd27e-cac1-46a6-9213-6362dfc5b6fa">
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<img width="517" alt="image" src="https://github.com/ksyksy815/wanted-pre-onboarding-frontend/assets/76037764/9997f00a-eba3-4b4e-963c-4af38c7cec35">
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<img width="517" alt="image" src="https://github.com/ksyksy815/wanted-pre-onboarding-frontend/assets/76037764/9a4373f1-2a0f-478a-a8e8-29730ef83c41">
 
-### `npm run eject`
+<img width="517" alt="image" src="https://github.com/ksyksy815/wanted-pre-onboarding-frontend/assets/76037764/2547a6dc-8cd7-4e0c-acc2-3aeac5e75f49">
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. /signin
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<img width="517" alt="image" src="https://github.com/ksyksy815/wanted-pre-onboarding-frontend/assets/76037764/ae5cfe26-745d-4540-8add-402c8bc85ccb">
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+3. /todo
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<img width="517" alt="image" src="https://github.com/ksyksy815/wanted-pre-onboarding-frontend/assets/76037764/4756f107-89a1-4853-b44e-4bb09913551a">
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<img width="517" alt="image" src="https://github.com/ksyksy815/wanted-pre-onboarding-frontend/assets/76037764/4389c6db-57dc-463b-a7b2-5e3fcc49e56c">
+
+
+<img width="517" alt="image" src="https://github.com/ksyksy815/wanted-pre-onboarding-frontend/assets/76037764/d265b376-0aca-4a4a-9205-d0ca38d55320">
+
+
+
+## Demonstration
+- 회원가입 -> 로그인 -> TODO 작성 & 수정 & 삭제 시연
+
+https://github.com/ksyksy815/wanted-pre-onboarding-frontend/assets/76037764/722209ab-9171-4aa1-9256-ef8317fed619
+
