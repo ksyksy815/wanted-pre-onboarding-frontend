@@ -6,11 +6,21 @@ import { TodoContext } from "../../context/TodoContext";
 type TodoItemProps = Todo;
 
 const Item = ({ id, todo, isCompleted, userId }: TodoItemProps) => {
+  const { todos, editTodo, getList } = useContext(TodoContext);
   const [mode, setMode] = useState<"view" | "edit">("view");
-  const { editTodo } = useContext(TodoContext);
 
-  const handleChecking = () => {
-    editTodo(id, todo, isCompleted);
+  const [editModeTodo, setEditModeTodo] = useState<string>(todo);
+  const [editModeIsCompleted, setEditModeIsCompleted] =
+    useState<boolean>(isCompleted);
+
+  const handleChecking = async () => {
+    const result = await editTodo(id, todo, !isCompleted);
+
+    if (result) {
+      await getList();
+    } else {
+      alert("에러가 발생했어요");
+    }
   };
 
   return (

@@ -20,8 +20,6 @@ const Form = () => {
 
     if (!newTodo || newTodo === "") return;
 
-    console.log(newTodo);
-
     const result = await createTodo(newTodo);
 
     if (result) {
