@@ -1,4 +1,10 @@
-import { Dispatch, SetStateAction } from "react";
+import {
+  AiOutlineEdit,
+  AiOutlineDelete,
+  AiOutlineCheck,
+  AiOutlineClose,
+} from "react-icons/ai";
+import { StyledButtonSet, StyledButton } from "./Todo.style";
 
 type ItemButtonSetProps = {
   mode: "view" | "edit";
@@ -38,24 +44,24 @@ const ItemButtonSet = ({ mode, firstBtn, secondBtn }: ItemButtonSetProps) => {
 
   return (
     <>
-      <div>
-        <button
+      <StyledButtonSet>
+        <StyledButton
           type="button"
           data-testid={
             mode === "view" ? firstBtn.viewModeId : firstBtn.editModeId
           }
           onClick={onClickFstBtn}>
-          {mode === "view" ? firstBtn.viewModeText : firstBtn.editModeText}
-        </button>
-        <button
+          {mode === "view" ? <AiOutlineEdit /> : <AiOutlineCheck />}
+        </StyledButton>
+        <StyledButton
           type="button"
           data-testid={
             mode === "view" ? secondBtn.viewModeId : secondBtn.editModeId
           }
           onClick={onClickSndBtn}>
-          {mode === "view" ? secondBtn.viewModeText : secondBtn.editModeText}
-        </button>
-      </div>
+          {mode === "view" ? <AiOutlineDelete /> : <AiOutlineClose />}
+        </StyledButton>
+      </StyledButtonSet>
     </>
   );
 };

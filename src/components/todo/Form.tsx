@@ -1,6 +1,7 @@
-import React, { useContext, useState } from "react";
-import { TodoContext, useTodoContext } from "../../context/TodoContext";
-import { StyledTodoForm } from "./Todo.style";
+import React, { useState } from "react";
+import { AiOutlinePlus } from "react-icons/ai";
+import { useTodoContext } from "../../context/TodoContext";
+import { StyledTodoForm, StyledButton } from "./Todo.style";
 
 const Form = () => {
   const { createTodo, getList } = useTodoContext();
@@ -40,9 +41,9 @@ const Form = () => {
         data-testid="new-todo-input"
         onChange={handleInputChange}
       />
-      <button type="submit" data-testid="new-todo-add-button">
-        추가
-      </button>
+      <StyledButton type="submit" data-testid="new-todo-add-button">
+        <AiOutlinePlus />
+      </StyledButton>
     </StyledTodoForm>
   );
 };

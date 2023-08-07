@@ -14,6 +14,7 @@ export const StyledTodoForm = styled.form`
   display: flex;
   flex-direction: row;
   column-gap: 3px;
+  margin-bottom: 10px;
 
   input {
     flex: 1 1 auto;
@@ -39,6 +40,7 @@ export const StyledTodoList = styled.ul`
     flex-direction: row;
     justify-content: space-between;
     column-gap: 3px;
+    font-size: 0.8rem;
 
     label {
       flex: 1 1 auto;
@@ -46,12 +48,21 @@ export const StyledTodoList = styled.ul`
       flex-direction: row;
       column-gap: 5px;
 
+      &:hover {
+        font-weight: bold;
+      }
+
+      input[type="checkbox"] {
+        cursor: pointer;
+      }
+
       input[type="text"] {
         flex: 1 1 auto;
       }
 
       span {
         align-self: center;
+        cursor: pointer;
       }
     }
   }
@@ -62,4 +73,28 @@ export const StyledTodoList = styled.ul`
     font-size: 0.8rem;
     padding: 2rem;
   }
+`;
+
+export const StyledButton = styled.button`
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-content: center;
+  background-color: #fff;
+  border: none;
+  border-radius: 5px;
+  color: #24243d;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #ff1493;
+    color: #fff;
+  }
+`;
+
+export const StyledButtonSet = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 2px;
 `;
